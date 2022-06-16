@@ -1,0 +1,143 @@
+.Searchbar{
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.searchOffer{
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    margin-top:10px;
+}
+.icon_input{
+    background: rgb(230, 235, 236);
+    border-radius:6px;
+}
+.locationicon{
+  margin-left: 9px;
+  
+}
+.inputes{
+    display: flex;
+    flex-direction: row;
+    gap:2px;
+    height:35px;
+    margin-top:7px;
+    margin-left: 2%;
+    width:65%;
+}
+.cityinput{
+    background: transparent;
+    border:0px solid;
+    outline: none;
+    line-height: 2;
+    margin-left:9px;
+    width:150px;
+}
+.locationpointer{
+    width:40px;
+    text-align: center;
+    opacity:0.5;
+    cursor: pointer;
+}
+.searchinput_icon{
+    width:70%;
+    background: rgb(230, 235, 236);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 6px;
+}
+.searchinput{
+    width:90%;
+    background: transparent;
+    outline:none;
+    border:none;
+    margin-left: 10px;
+    
+}
+.searchicon{
+    margin-top:10px;
+    width:30px;
+    text-align: center;
+    cursor: pointer;
+}
+.thunder_icon{
+    color:rgb(159,87,81);
+    font-size:12px;
+}
+.button{
+    background: rgb(255,110,96);
+    color:white;
+    border:none;
+    outline:none;
+    text-align: center;
+    height:40px;
+    margin-top:5px;
+    width:120px;
+    border-radius:7px;
+}
+.searchbar1{
+    display: flex;
+    width:30%;
+    flex-direction: row;
+    justify-content: space-around;
+  
+}
+.citylist{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+   width:210px;
+   position: relative;
+   left:3%;
+   height:60vh;
+   overflow: auto;
+   display: bolck;
+}
+.hidecitylist{
+    display:none;
+}
+.citylist>div:hover{
+    background: rgb(236, 235, 235);
+    cursor:pointer;
+}
+
+@media screen and (max-width:1020px) {
+    .Searchbar{
+        flex-direction: column;
+       height:90px;
+    }
+    .inputes{
+        width:100%;
+        margin-top:0%;
+        margin-left: 0;
+    }
+    .searchbar1{
+        width:100%;
+        margin-top: -2%;
+    }
+    .citylist{
+        top:-25px;
+        left:0;
+    }
+}
+@media screen and (max-width:420px){
+    .locationicon{
+       display: none;
+    }
+    .cityinput{
+        width:100px;
+    }
+    .icon_input{
+        width:50%;
+    }
+    .locationpointer{
+        width:20px;
+        margin-left: 17px;
+    }
+   
+}

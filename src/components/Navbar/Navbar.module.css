@@ -1,0 +1,90 @@
+.Navbar{
+    display:flex;
+    flex-direction:row;
+    height:50px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  
+}
+.Navbar1{
+    width:70%;
+    height:80%;
+    display:flex;
+    flex-direction:row;
+   justify-content:space-around;
+    font-weight:bold;
+    line-height:2;
+   cursor:pointer;
+   margin-top:0.5%;
+}
+
+.navcolortheme{
+    color:rgb(255,110,96);
+}
+.hovereffect:hover{
+    color:rgb(255,110,96);
+}
+.savemore{
+    background:rgb(255,110,96);
+    color:white;
+    font-weight:bold;
+    font-size:12px;
+    height:20px;
+    line-height:1.5;
+    margin-top:5px;
+    margin-left:-10px;
+}
+.Navbar2{
+    width:30%;
+    display:flex;
+    flex-direction:row;
+    font-size:13px;
+    justify-content: space-around;
+    margin-top:10px;
+    margin-left:2%;
+}
+.Navbar2>div{
+    cursor:pointer;
+}
+.loginsignup{
+    display:flex;
+    flex-direction:row;
+    gap:7px;
+}
+.loginsignup>div{
+    cursor:pointer;
+}
+/* .carticon{
+   
+} */
+
+@media screen and (max-width:820px){
+    .Navbar1{
+        font-size:12px;
+    }
+    .Navbar2{
+        width:20%;
+        gap:10px;
+        margin-left:30px;
+    }
+}
+
+@media screen and (max-width:420px){
+    .Navbar{
+        flex-direction:column;
+    }
+    .Navbar1{
+        width:100%;
+        font-size:8px;
+    }
+    .savemore{
+        display:none;
+    }
+    .navimage{
+        width:50px;
+    }
+    .Navbar2{
+        width:100%;
+        margin-left:-8px;
+        margin-top:-20px;
+    }
+} 
