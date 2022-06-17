@@ -20,7 +20,7 @@ const Searchbar = () => {
 
   const {city: searchedcity,show_citylist : show}=useSelector((state)=>state)
   const dispatch=useDispatch()
-
+  const [ll,setLl]=useState(false)
   const [lat,setLat]=useState("")
   const [lon,setLon]=useState("")
   useEffect(()=>{
@@ -35,7 +35,7 @@ const Searchbar = () => {
   })
 
  
-  },[lat,lon])
+  },[lat,lon,ll])
 
 const handecitylist=()=>{
   if(show==true){
@@ -58,7 +58,9 @@ const handecitylist=()=>{
 
         {/* Location input box*/}
         <div className={styled.icon_input}>
-        <MdLocationOn className={styled.locationicon}/>
+        <MdLocationOn className={styled.locationicon} onClick={()=>{
+          setLl(!ll)
+        }}/>
       <input type="text" defaultValue={searchedcity} className={`${styled.cityinput}`} />
       <BiCurrentLocation className={styled.locationpointer} onClick={()=>handecitylist()}/>
      

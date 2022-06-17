@@ -1,0 +1,622 @@
+
+/*MAIN COMPONENT STRUCTURE STARTS*/
+
+.main{
+    width:100%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+   
+    
+}
+.container{
+    width:92%;
+    display: inline-flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    gap:0px 10px;
+    justify-content: space-around;
+   
+
+}
+.divs{
+    display: flex;
+    flex-direction: row;
+    gap:0px;
+    width:max-content;
+    font-size: 14px;
+    font-weight:500;
+    cursor: pointer;
+}
+.eachdiv{
+    width:max-content;
+    color:rgb(68, 63, 63);
+    cursor: pointer;
+}
+.eachdiv:hover{
+    color:rgb(255,110,96);
+}
+
+
+/*MAIN COMPONENT STRUCTURE ENDS*/
+
+/*HEALTH RESOURCES CENTER COMPONENT STARTS*/
+.component1:hover + .healthresourcecenter{
+    display: block;
+   
+   }
+.healthresourcecenter{
+    display: none;
+    font-size: 12px;
+    line-height: 2.5;
+    text-align: left;
+    width:200px;
+    font-family: sans-serif;
+    margin-left: 0px;
+    position: absolute;
+    top:125px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    height:100px;
+    background: white;
+  
+}
+.healthresourcecenter:hover{
+    display: block;
+}
+.healthresourcecenter>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.healthresourcecenter>div:hover{
+    color:rgb(255,110,96);
+   
+}
+
+/*HEALTH RESOURCES CENTER COMPONENT ENDS*/
+
+
+/*COVID ESSENTIALS COMPONENTS STARTS*/
+.covidessentials{
+    display: none;
+    position: absolute;
+    font-size: 12px;
+    /* line-height: 1; */
+    text-align: left;
+    width:200px;
+    font-family: sans-serif;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background: white;
+    font-weight: bold;
+    left: 18%;
+    top:18%;
+}
+.covidessentials>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+}
+.covidessentials>div:hover{
+    color:rgb(255,110,96);
+}
+.covidessentials:hover{
+    display: block;
+}
+.component2:hover + .covidessentials{
+    display: block;
+}
+
+
+/*COVID ESSENTIALS COMPONENTS ENDS*/
+
+/*FEATURED COMPONENTS STARTS*/
+.featured{
+    display: flex;
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-weight: bold;
+    left:27.9%;
+    top:18%;
+}
+.featured>div>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+    text-align: left;
+}
+.featured>div>div:hover{
+    color:rgb(255,110,96);
+    cursor: pointer;
+}
+.changecolor{
+    color:rgb(177, 177, 185);
+    font-weight: 500;
+    line-height: 1;
+}
+.verticleline{
+    width:0.7px;
+    height:200px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.featuredlineheight{
+    line-height: 1.7;
+}
+.featured2{
+    margin-left:15px;
+}
+.mainfeatured{
+    display: none;
+}
+.mainfeatured:hover{
+    display: block;
+}
+.component3:hover + .mainfeatured{
+    display: block;
+}
+
+/*FEATURED COMPONENTS ENDS*/
+
+/*VITAMINS AND NUTRITIANS COMPONENTS STARTS*/
+.vitamins{
+    display: flex;
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-weight: bold;
+    top:18%;
+    left:35%;
+   
+}
+.vitamins>div>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+    text-align: left;
+}
+.vitaminsline1{
+    width:0.7px;
+    height:350px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.vitamins1{
+    margin-left: 15px;
+}
+.vitamins>div>div:hover{
+    color:rgb(255,110,96);
+    cursor: pointer;
+}
+.mainvitamins{
+    display:none;
+}
+.mainvitamins:hover{
+    display:block;
+}
+.component4:hover + .mainvitamins{
+    display:block;
+}
+
+/*FEATURED COMPONENTS ENDS*/
+
+/*DIABETES COMPONENTS STARTS*/
+.diabetes{
+    display: flex;
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-weight: bold;
+    top:18%;
+    left:47%;
+}
+.diabetes>div>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+    text-align: left;
+}
+.diabetes>div>div:hover{
+    color:rgb(255,110,96);
+    cursor: pointer;
+}
+.maindiabetes{
+    display: none;
+}
+.maindiabetes:hover{
+    display:block;
+}
+.component5:hover + .maindiabetes{
+    display:block;
+}
+.diabetes1{
+    margin-left: 15px;
+}
+
+/*FEATURED COMPONENTS ENDS*/
+
+/*HEALTHCARE DEVICES COMPONENT STARTS*/
+.devices{
+    display: flex;
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-weight: bold;
+    left:23%;
+    top:18%;
+    /* top:18%;
+    left:53.5%; */
+}
+.devices>div>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+    text-align: left;
+}
+.devices>div>div:hover{
+    color:rgb(255,110,96)
+}
+.devicesline1{
+    width:0.7px;
+    height:400px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.devicesline2{
+    width:0.7px;
+    height:350px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.devices1,.devices2{
+    margin-left:15px;
+}
+.maindevices{
+    display: none;
+}
+.maindevices:hover{
+    display:block;
+}
+.component6:hover + .maindevices{
+    display:block;
+}
+
+/*HEALTHCARE DEVICES COMPONENT ENDS*/
+
+/*PERSONAL CARE COMPONENT STARTS*/
+.personalcare{
+    display: flex;
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-weight: bold;
+    left:35%;
+    top:18%;
+}
+.personalcare>div>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+    text-align: left;
+}
+.personalcare>div>div:hover{
+    color:rgb(255,110,96)
+}
+.personalcareline1{
+    width:0.7px;
+    height:320px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.personalcareline2{
+    width:0.7px;
+    height:250px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.personalcareline3{
+    width:0.7px;
+    height:160px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.mainpersonalcare{
+    display:none;
+}
+.mainpersonalcare:hover{
+    display:block;
+}
+.component7:hover + .mainpersonalcare{
+    display:block;
+}
+
+/*PERSONAL CARE COMPONENT ENDS*/
+
+/*HEALTH CONDITIONS COMPONENT START*/
+.healthconditions{
+    display: flex;
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-weight: bold;
+    left:72%;
+    top:18%;
+}
+.healthconditions>div>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+    text-align: left;
+}
+.healthconditions>div>div:hover{
+    color:rgb(255,110,96);
+}
+.healthconditionsline1{
+    width:0.7px;
+    height:240px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.healthconditions1{
+    margin-left:15px;
+}
+.mainhealthconditions{
+    display:none;
+}
+.mainhealthconditions:hover{
+    display: block;
+}
+.component8:hover + .mainhealthconditions{
+    display: block;
+}
+
+/*HEALTH CONDITIONS COMPONENT ENDS*/
+
+/*AYURVEDA COMPONENTS STARTS*/
+.ayurveda{
+    display: flex;
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-weight: bold;
+    left:68%;
+    top:18%;
+}
+.ayurveda>div>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+    text-align: left;
+}
+.ayurveda>div>div:hover{
+    color:rgb(255,110,96);
+}
+.ayurveda1{
+    margin-left:15px;   
+}
+.ayurvedaline1{
+    width:0.7px;
+    height:300px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.mainayurveda{
+    display: none;
+}
+.mainayurveda:hover{
+    display: block;
+}
+.component9:hover + .mainayurveda{
+    display:block;
+}
+/*AYURVEDA PRODUCTS COMPONENT ENDS*/
+
+/*HOMEOPATHY COMPONENT STARTS*/
+.homeopathy{
+    display: flex;
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    margin-left: 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-weight: bold;
+    left:46%;
+    top:21.1%;
+}
+.homeopathy>div>div{
+    margin-left:10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:12px;
+    text-align: left;
+}
+.homeopathy>div>div:hover{
+    color:rgb(255,110,96);
+}
+.homeopathy1{
+    margin-left: 15px;
+}
+.homeopathyline1{
+    width:0.7px;
+    height:400px;
+    background: rgb(223, 222, 222);
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 1;
+}
+.mainhomeopathy{
+    display:none;
+}
+.mainhomeopathy:hover{
+    display:block;
+}
+.component10:hover + .mainhomeopathy{
+    display:block;
+}
+@media screen and (max-width:1024px){
+    .healthresourcecenter{
+        top:14.5%;
+        left:30px;
+    }
+    .covidessentials{
+        top:14.5%;
+        left:30%;
+    }
+    .featured{
+        top:14.5%;
+        left:45%;
+    }
+    .vitaminsline1{
+        display: none;
+    }
+    .vitamins{
+        display: flex;
+        flex-direction: column;
+        height: 220px;
+        overflow: auto;
+        top:14%;
+        left:60%;
+    }
+    .diabetes{
+        top:14.5%;
+    }
+    .devices{
+       flex-direction: column;
+       height: 220px;
+        overflow: auto;
+        top:15.7%;
+        left:4%;
+    }
+    .devicesline1{
+        display:none;
+    }
+    .devicesline2{
+        display:none
+    }
+    .personalcareline1,.personalcareline2,.personalcareline3{
+        display:none;
+    }
+    .personalcare{
+        flex-direction: column;
+        height: 220px;
+        overflow: auto;
+        top:15.7%;
+        left:17%;
+    }
+    .healthconditions{
+        flex-direction: column;
+        height: 220px;
+        overflow: auto;
+        top:15.7%;
+        left:40%;
+    }
+    .ayurveda{
+        flex-direction: column;
+        height: 220px;
+        overflow: auto;
+        top:15.7%;
+        left:60%;
+    }
+    .homeopathy{
+        flex-direction: column;
+        height: 220px;
+        overflow: auto;
+        top:15.7%;
+        left:67%;
+    }
+}
+@media screen and (max-width:420px) {
+    .healthresourcecenter{
+        top:25%;
+        left:22px;
+    }
+    .covidessentials{
+        left:47%;
+        top:25%;
+    }
+    .featured{
+        left:5%;
+        display: flex;
+        flex-direction: column;
+        height: 180px;
+        overflow: auto;
+        top:28%;
+        
+    }
+    .verticleline{
+        display: none;
+    }
+    .vitamins{
+        top:28%;
+        left:30%;
+    }
+    .diabetes{
+        left:50%;
+        flex-direction: column;
+        height:180px;
+        overflow: auto;
+        top:28%;
+    }
+    .devices{
+        top:31.4%;
+        left:8%;
+    }
+    .personalcare{
+        top:31.3%;
+        left:50%;
+    }
+    .healthconditions{
+        top:34.5%;
+        left:6%;
+    }
+    .ayurveda{
+        top:34.5%;
+        left:50%;
+    }
+    .homeopathy{
+        top:37.7%;
+        left:35%;
+    }
+    .homeopathy1{
+        margin-left: 0px;
+    }
+}
