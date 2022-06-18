@@ -1,9 +1,9 @@
 import React, { useEffect ,useState} from 'react'
-import {Brands} from "../../store/FeaturedBrands/Featuredbrands"
+import {Brands} from "../../store/LandingPage/FeaturedBrands/Featuredbrands"
 import styled from "./FeaturedBrands.module.css"
 import {BsChevronRight,BsChevronLeft} from "react-icons/bs"
 import { useDispatch, useSelector } from 'react-redux'
-import { get_featured_brand } from '../../store/FeaturedBrands/FeaturedBrands.action'
+import { get_featured_brand } from '../../store/LandingPage/FeaturedBrands/FeaturedBrands.action'
 const FeaturedBrands = () => {
    
    const {data}=useSelector((state)=>state.featuredbrand)

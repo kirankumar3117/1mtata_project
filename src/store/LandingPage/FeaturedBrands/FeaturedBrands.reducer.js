@@ -1,4 +1,4 @@
-// import {Brands} from "./Featuredbrands"
+
 import { GET_FEATURED_BRAND } from "./FeaturedBrands.types"
 
 const initial={
