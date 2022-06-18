@@ -18,7 +18,7 @@ let apiurl=`https://api.openweathermap.org/geo/1.0/reverse?`
 const Searchbar = () => {
 
 
-  const {city: searchedcity,show_citylist : show}=useSelector((state)=>state)
+  const {city: searchedcity,show_citylist : show}=useSelector((state)=>state.searchbar)
   const dispatch=useDispatch()
   const [ll,setLl]=useState(false)
   const [lat,setLat]=useState("")

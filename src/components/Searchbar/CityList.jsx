@@ -4,7 +4,7 @@ import { city_list } from './district'
 import {useSelector,useDispatch} from "react-redux"
 import { search_city } from '../../store/searchbar/searchbar.action'
 const CityList = () => {
-const {show_citylist}=useSelector((state)=>state)
+const {show_citylist}=useSelector((state)=>state.searchbar)
 const dispatch=useDispatch()
 const handlecity=(el)=>{
     console.log(el)

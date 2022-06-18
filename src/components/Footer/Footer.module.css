@@ -1,0 +1,203 @@
+.component1{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    width:100%;
+    height:140px;
+}
+.component1main{
+    font-size:25px;
+    font-family: sans-serif;
+    font-weight: 500;
+    position: relative;
+    top:15px;
+}
+.component1main1{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.component1thick{
+    font-size:27px;
+    font-weight:bold;
+}
+
+
+/*Component-2*/
+.component2{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+}
+.component2_1{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+  justify-content: center;
+  position: relative;
+  top:15px;
+  height:70px;
+}
+.component2_2{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+.component2_3{
+    border:0;
+    outline: none;
+    background: rgb(241, 241, 241);
+    margin-left: 20px;
+    height:40px;
+    width:250px;
+}
+.component2_4{
+    border: none;
+    outline: none;
+    height:40px;
+    background: rgb(254,110,97);
+    color:white;
+    width:120px;
+    border-radius: 7px;
+    margin-left: 15px;
+}
+/*COMPONENT-3*/
+.component3{
+    background: white;
+    width:100%;
+}
+.component3_1{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    /* justify-content: space-between; */
+}
+.component3_2{
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    text-align: left;
+    line-height: 3.5;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.component3_2>div>div{
+    font-size:15px;
+    font-weight: 500;
+    font-family: sans-serif;
+    color:black;
+}
+#changecolor{
+    font-size:11.5px;
+    color:rgb(94, 89, 89);
+    line-height: 2;
+   
+}
+.component3line1{
+    width:90%;
+    margin: auto;
+    height:0.75px;
+    background:rgb(224, 224, 224);
+}
+.socials{
+    display: flex;
+    flex-direction: row;
+    gap:7px;
+   
+}
+.socials1{
+    /* background:black; */
+    color:black;
+    cursor: pointer;
+}
+.socials1:hover{
+    color:black;
+}
+a:active{
+    color:black;
+}
+.downloadapp>div>a>img{
+   
+    cursor: pointer;
+}
+
+/*COMPONENT-4*/
+.component4{
+    width:100%;
+}
+.component4main{
+    width:90%;
+    margin: auto;
+}
+.component4_1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.component4_sub{
+    width:320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.component4changecolor{
+    font-size: 11px;
+    font-weight: 500;
+    color:rgb(173, 172, 172);
+    line-height: 1.6;
+}
+.component4_sub1{
+    width:200px;
+    text-align: left;
+    line-height: 2.5;
+    color: black;
+    font-size: 29px;
+    font-weight: 500;
+}
+.component4_icons{
+    font-size:70px;
+    margin-top: 40px;
+    color:rgb(254,110,97);
+}
+
+/*COMPONENT-5*/
+.component5_1>div{
+    color: black;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: 4;
+}
+
+/**FINAL COMPONENT*/
+.finalcomponent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.finalcomponent_1{
+    font-weight: 500;
+    color: rgb(187, 182, 182);
+    margin-left:15px;
+}
+.finalcomponent_2>img{
+    width:50px;
+}
+@media screen and (max-width:420px) {
+    .component1{
+       width:100%;
+        height:170px;
+        margin-left: 5%;
+    }
+    .component2_1{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+      top:45px;
+      margin-left: 5px;
+    }
+    .component2{
+        height:160px;
+        width:100%;
+        margin-left: 8px;
+    }
+}

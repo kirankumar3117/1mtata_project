@@ -1,0 +1,33 @@
+export const slidebardata=[
+    {
+        id:0,
+        img:"https://onemg.gumlet.io/image/upload/w_899,h_200,,a_ignore,q_auto,f_auto/v1655323350/vs12ffj0gvfbapiwl6bm.png",
+        state:false,
+        url:""
+    },
+    {
+        id:1,
+        img:"https://onemg.gumlet.io/image/upload/w_899,h_200,,a_ignore,q_auto,f_auto/v1654452372/qmrhvosx0qqcd9wh5ojf.png",
+        state:false,
+        url:""
+    },
+    {
+        id:2,
+        img:"https://onemg.gumlet.io/image/upload/w_899,h_200,,a_ignore,q_auto,f_auto/v1651561452/x7zr33pjnj4gcpqktn3q.png",
+        state:false,
+        url:"" 
+    },
+    {
+        id:3,
+        img:"https://onemg.gumlet.io/image/upload/w_899,h_200,,a_ignore,q_auto,f_auto/v1651469437/zkm0v49j2nsuuo3vnlyw.png",
+        state:false,
+        url:"" 
+    },
+    {
+        id:4,
+        img:"https://onemg.gumlet.io/image/upload/w_899,h_200,,a_ignore,q_auto,f_auto/v1641283756/kcdcsb5yrkpxok5bpm8y.png",
+        state:false,
+        url:"" 
+    }
+]
+
