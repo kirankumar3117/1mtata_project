@@ -1,5 +1,15 @@
 {
-  "posts": [
+
+  "brands":{
+    "FeaturedBrands":[
+      {
+        "img":"https://onemg.gumlet.io/image/upload/w_150,h_150,c_fit,a_ignore,q_auto,f_auto/v1655447476/kkpsr5tdl5bsc16ymrlt.jpg",
+        "id":1,
+        "name":"Bai"
+      }
+    ]
+  },
+  "users": [
     {
       "id": 1,
       "title": "json-server",

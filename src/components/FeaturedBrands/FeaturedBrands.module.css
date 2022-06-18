@@ -1,0 +1,77 @@
+.buttondiv{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+.button{
+    font-size:28px;
+    font-weight: 700;
+    margin-left:0px;
+    margin-top: 6px;
+    color: rgb(254,110,97);
+}
+.maincomponent{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    overflow-x: auto;
+   
+}
+.item{
+    width:170px;
+    height:210px;
+    cursor: pointer;
+    
+}
+.item:hover{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius:7px;
+}
+.itemname{
+    font-size:13px;
+    font-family: sans-serif;
+    width:120px;
+    margin: auto;
+    margin-top: 15px;;
+    
+}
+.image{
+    width:115px;
+}
+.component2{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.component1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:60px;
+    background: rgb(243, 243, 243);
+ 
+}
+.component1_1{
+    line-height:3.5;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+.component1_2{
+    line-height: 2;
+    background:rgb(254,110,97);
+    color:white;
+    width:90px;
+    height: 30px;
+    border-radius: 7px;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+@media screen and (max-width:420px){
+    .maincomponent>div{
+        gap:50px;
+    }
+}

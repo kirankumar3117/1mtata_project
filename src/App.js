@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Searchbar from './components/Searchbar/Searchbar';
 import Slidebar from './components/Slidebar_offerlist/Slidebar';
 import Footer from "./components/Footer/Footer"
+import FeaturedBrands from './components/FeaturedBrands/FeaturedBrands';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
    <Searchbar/>
    <Listofitems/>
    <Slidebar/> 
+   <FeaturedBrands/>
 <Footer/>
  
    <div></div>
