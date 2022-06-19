@@ -7,6 +7,7 @@ import Slidebar from './components/Slidebar_offerlist/Slidebar';
 import Footer from "./components/Footer/Footer"
 import FeaturedBrands from './components/FeaturedBrands/FeaturedBrands';
 import PopularCatogery from './components/PopularCatogery/PopularCatogery';
+import Healthconcern from './components/Healthconcern/Healthconcern';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
    <Slidebar/> 
    <FeaturedBrands/>
    <PopularCatogery/>
+   <Healthconcern/>
   
 <Footer/>
  

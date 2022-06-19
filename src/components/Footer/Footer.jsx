@@ -6,6 +6,8 @@ import {MdPayments} from "react-icons/md"
 const Footer = () => {
   return (
     <div>
+        <br/>
+        <br/>
         <div>
             <div className={styled.component1}>
                 <div className={styled.component1main}>INDIAS LARGEST HEALTHCARE PLATFORM</div>
