@@ -21,17 +21,17 @@ export let Brands=[
     },
     {
         id:5,
-        img:"https://onemg.gumlet.io/image/upload/w_150,h_150,c_fit,a_ignore,q_auto,f_auto/v1642586423/uq1gwxslqqrxxwv6zi6j.jpg",
+        img:"https://onemg.gumlet.io/image/upload/w_150,h_150,c_fit,a_ignore,q_auto,f_auto/v1624525168/p1blaka183nc1zlil8tq.png",
         name:"Sexual Wellness"
     },
     {
         id:6,
-        img:"https://onemg.gumlet.io/image/upload/w_150,h_150,c_fit,a_ignore,q_auto,f_auto/v1642586423/uq1gwxslqqrxxwv6zi6j.jpg",
+        img:"https://onemg.gumlet.io/image/upload/w_150,h_150,c_fit,a_ignore,q_auto,f_auto/v1624525320/j7ruar88gacbzksuadjn.png",
         name:"Homeopathy"
     },
     {
         id:7,
-        img:"https://onemg.gumlet.io/image/upload/w_150,h_150,c_fit,a_ignore,q_auto,f_auto/v1642586423/uq1gwxslqqrxxwv6zi6j.jpg",
+        img:"https://onemg.gumlet.io/image/upload/w_150,h_150,c_fit,a_ignore,q_auto,f_auto/v1624525219/tfrtydrq6uzeyb42gh08.png",
         name:"Diabetes Care"
     }
 ]
