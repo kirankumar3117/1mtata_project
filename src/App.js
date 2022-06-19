@@ -9,6 +9,7 @@ import FeaturedBrands from './components/FeaturedBrands/FeaturedBrands';
 import PopularCatogery from './components/PopularCatogery/PopularCatogery';
 import Healthconcern from './components/Healthconcern/Healthconcern';
 import Topseller_product from './components/topseller_product/Topseller_product';
+import Healthcare_products from './components/Healthcare_product/Healthcare_products';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
    <Slidebar/> 
    <FeaturedBrands/>
    <Topseller_product/>
+   <Healthcare_products/>
    <PopularCatogery/>
    <Healthconcern/>
   
