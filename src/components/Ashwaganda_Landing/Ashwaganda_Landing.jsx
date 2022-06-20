@@ -1,22 +1,20 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import styled from "./Healthcare_products.module.css"
+import styled from "./Ashwaganda_Landing.module.css"
 import {useEffect} from "react"
 import {AiFillStar} from "react-icons/ai"
 import {BiRupee} from "react-icons/bi"
-import { get_healthproducts } from '../../store/LandingPage/HealthProducts/Healthproducts.action'
-import { useNavigate } from 'react-router-dom'
-const Healthcare_products = () => {
-    const navigator=useNavigate()
-    const {data}=useSelector((state)=>state.healthcareproducts)
+import { get_ashwaganda_landing } from '../../store/LandingPage/Ashwaganda_Landing/Ashwaganda_Landing.action'
+const Ashwaganda_Landing = () => {
+    const {data}=useSelector((state)=>state.ashwagandalanding)
     const dispatch=useDispatch()
     useEffect(()=>{
-        dispatch(get_healthproducts())
+        dispatch(get_ashwaganda_landing())
      },[])
   return (
     <div>
            <div className={styled.component1}>
-            <div className={styled.component1_1}>Tata 1mg health products</div>
+            <div className={styled.component1_1}>Ashwaganda | Supplement of the week</div>
             <div className={styled.component1_2}>SEE ALL</div>
         </div>
 
@@ -24,7 +22,7 @@ const Healthcare_products = () => {
         <div className={styled.maincomponent} >
             {data.map(e=>{
                 return <div className={styled.item} key={e.id} onClick={()=>{
-                   navigator(`otc/${e.name}`)
+                    console.log(e)
                 }}>
                     <br/>
                     <div className={styled.mainimage}>
@@ -61,4 +59,4 @@ const Healthcare_products = () => {
   )
 }
 
-export default Healthcare_products
+export default Ashwaganda_Landing

@@ -51,7 +51,7 @@
 }
 .image{
     width:115px;
-    height:90%;
+    max-height: 90%;
 }
 .quantity{
     width:80%;  
