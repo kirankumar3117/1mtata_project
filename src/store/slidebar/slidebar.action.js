@@ -7,10 +7,10 @@ export const slidebar_image_change=()=>(dispatch)=>{
         if(value==5){
             value=0
         }
-        setTimeout(() => {
+        // setTimeout(() => {
             dispatch({type:CHANGE_IMAGE,payload:value})
             value++
-        }, 1000*5);
+        // }, 1000*5);
        
     },1000*7)
 }

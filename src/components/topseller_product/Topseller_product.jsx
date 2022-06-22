@@ -5,7 +5,9 @@ import styled from "./Topseller_product.module.css"
 import {useEffect} from "react"
 import {AiFillStar} from "react-icons/ai"
 import {BiRupee} from "react-icons/bi"
+import {useNavigate} from "react-router-dom"
 const Topseller_product = () => {
+    const navigator=useNavigate()
     const {data}=useSelector((state)=>state.topnutritionseller)
     const dispatch=useDispatch()
     useEffect(()=>{
@@ -21,9 +23,9 @@ const Topseller_product = () => {
         <div className={styled.component2}>
         <div className={styled.maincomponent} >
             {data.map(e=>{
-                return <div className={styled.item} key={e.id} onClick={()=>{
-                    console.log(e)
-                }}>
+                return <div className={styled.item} key={e.id}onClick={()=>{
+                    navigator(`otc/${e.name}`)
+                 }}>
                     <br/>
                     <div className={styled.mainimage}>
                     <img src={e.img} alt="" data-aos="" className={styled.image}/>

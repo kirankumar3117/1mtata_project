@@ -4,8 +4,9 @@ import styled from "./FeaturedBrands.module.css"
 import {BsChevronRight,BsChevronLeft} from "react-icons/bs"
 import { useDispatch, useSelector } from 'react-redux'
 import { get_featured_brand } from '../../store/LandingPage/FeaturedBrands/FeaturedBrands.action'
+import {useNavigate} from "react-router-dom"
 const FeaturedBrands = () => {
-   
+   const navigator=useNavigate()
    const {data}=useSelector((state)=>state.featuredbrand)
    const dispatch=useDispatch()
     useEffect(()=>{
@@ -23,8 +24,8 @@ const FeaturedBrands = () => {
         <div className={styled.buttondiv}><BsChevronLeft className={styled.button}/></div>
             {data.map(e=>{
                 return <div className={styled.item} key={e.id} onClick={()=>{
-                    console.log(e)
-                }}>
+                    navigator(`otc/${e.name}`)
+                 }}>
                     <br/>
                     <img src={e.img} alt="" data-aos="" className={styled.image}/>
                     <br/>

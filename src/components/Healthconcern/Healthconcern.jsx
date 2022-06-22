@@ -3,8 +3,9 @@ import { get_healthconcern } from '../../store/LandingPage/ShopbyHealthConcern/H
 import {useEffect} from "react"
 import {useDispatch,useSelector} from "react-redux"
 import styled from "./Healthconcern.module.css"
-
+import {useNavigate} from "react-router-dom"
 const Healthconcern = () => {
+    const navigator=useNavigate()
     const {data}=useSelector((state)=>state.healthconcern)
     const dispatch=useDispatch()
      useEffect(()=>{
@@ -22,8 +23,8 @@ const Healthconcern = () => {
         {/* <div className={styled.buttondiv}><BsChevronLeft className={styled.button}/></div> */}
             {data.map(e=>{
                 return <div className={styled.item} key={e.id} onClick={()=>{
-                    console.log(e)
-                }}>
+                    navigator(`otc/${e.name}`)
+                 }}>
                     <br/>
                     <img src={e.img} alt="" data-aos="" className={styled.image}/>
                     <br/>

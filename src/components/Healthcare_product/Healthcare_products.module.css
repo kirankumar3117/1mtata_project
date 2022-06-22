@@ -28,6 +28,7 @@
     width:178px;
     /* height:210px; */
     cursor: pointer;
+    margin-left:0
     
 }
 .item:hover{

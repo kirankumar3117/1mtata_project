@@ -3,8 +3,9 @@ import {useSelector,useDispatch} from "react-redux"
 import { useEffect } from 'react'
 import styled from "./PopularCatogery.module.css"
 import { get_popular_catogery } from '../../store/LandingPage/popularcatogery/popularcatogery.action'
-
+import {useNavigate} from "react-router-dom"
 const PopularcATOGERY = () => {
+    const navigator=useNavigate()
     const {data}=useSelector((state)=>state.popularcatogery)
     const dispatch=useDispatch()
      useEffect(()=>{
@@ -22,8 +23,8 @@ const PopularcATOGERY = () => {
         {/* <div className={styled.buttondiv}><BsChevronLeft className={styled.button}/></div> */}
             {data.map(e=>{
                 return <div className={styled.item} key={e.id} onClick={()=>{
-                    console.log(e)
-                }}>
+                    navigator(`otc/${e.name}`)
+                 }}>
                     <br/>
                     <img src={e.img} alt="" data-aos="" className={styled.image}/>
                     <br/>

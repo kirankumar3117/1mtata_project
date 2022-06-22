@@ -5,7 +5,9 @@ import {useEffect} from "react"
 import {AiFillStar} from "react-icons/ai"
 import {BiRupee} from "react-icons/bi"
 import { get_ashwaganda_landing } from '../../store/LandingPage/Ashwaganda_Landing/Ashwaganda_Landing.action'
+import {useNavigate} from "react-router-dom"
 const Ashwaganda_Landing = () => {
+    const navigator=useNavigate()
     const {data}=useSelector((state)=>state.ashwagandalanding)
     const dispatch=useDispatch()
     useEffect(()=>{
@@ -22,8 +24,8 @@ const Ashwaganda_Landing = () => {
         <div className={styled.maincomponent} >
             {data.map(e=>{
                 return <div className={styled.item} key={e.id} onClick={()=>{
-                    console.log(e)
-                }}>
+                    navigator(`otc/${e.name}`)
+                 }}>
                     <br/>
                     <div className={styled.mainimage}>
                     <img src={e.img} alt="" data-aos="" className={styled.image}/>
