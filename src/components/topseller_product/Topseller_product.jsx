@@ -6,6 +6,8 @@ import {useEffect} from "react"
 import {AiFillStar} from "react-icons/ai"
 import {BiRupee} from "react-icons/bi"
 import {useNavigate} from "react-router-dom"
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 const Topseller_product = () => {
     const navigator=useNavigate()
     const {data}=useSelector((state)=>state.topnutritionseller)
@@ -21,10 +23,69 @@ const Topseller_product = () => {
         </div>
 
         <div className={styled.component2}>
-        <div className={styled.maincomponent} >
+         {/* <div className={styled.maincomponent} > */}
+
+
+         <Carousel
+  additionalTransfrom={0}
+  arrows
+//   customeLeftArrow={<Leftbutton/>} 
+//   customeRightArrow={<Leftbutton/>}
+  autoPlaySpeed={3000}
+  centerMode={false}
+  className=""
+  containerClass="container-with-dots"
+  dotListClass=""
+  draggable
+  focusOnSelect={false}
+//   infinite
+  itemClass=""
+  keyBoardControl
+  minimumTouchDrag={80}
+  pauseOnHover
+  renderArrowsWhenDisabled={false}
+  renderButtonGroupOutside={false}
+  renderDotsOutside={false}
+  responsive={{
+    desktop: {
+      breakpoint: {
+        max: 3000,
+        min: 1024
+      },
+      items: 7,
+      partialVisibilityGutter: 40
+    },
+    mobile: {
+      breakpoint: {
+        max: 464,
+        min: 0
+      },
+      items: 1,
+      partialVisibilityGutter: 30
+    },
+    tablet: {
+      breakpoint: {
+        max: 1024,
+        min: 464
+      },
+      items: 2,
+      partialVisibilityGutter: 30
+    }
+  }}
+  rewind={false}
+  rewindWithAnimation={false}
+  rtl={false}
+  shouldResetAutoplay
+  showDots={false}
+  sliderClass=""
+  slidesToSlide={7}
+  swipeable
+>
+
+
             {data.map(e=>{
-                return <div className={styled.item} key={e.id}onClick={()=>{
-                    navigator(`otc/${e.name}`)
+                return <div className={styled.item} key={e.id} onClick={()=>{
+                    navigator(`otc/${e.name}/otc/${e._id}`)
                  }}>
                     <br/>
                     <div className={styled.mainimage}>
@@ -54,8 +115,8 @@ const Topseller_product = () => {
             {/* <div className={styled.buttondiv} onClick={()=>{
             //    setState(state+7)
             }}><BsChevronRight className={styled.button}/></div> */}
-           
-        </div>
+           </Carousel>
+        {/* </div> */}
         </div>
     </div>
   )
