@@ -9,6 +9,7 @@ import { hide_citylist, search_city, showlist } from '../../store/searchbar/sear
 import {city_list} from "./district"
 import CityList from './CityList'
 import { HIDE_CITY_LIST, SHOW_CITY_LIST } from '../../store/searchbar/searchbar.type'
+import { useRef } from 'react'
 
 
 let apikey=`82b7f2609d7dda6f515e821c1c0afbbe`
@@ -17,7 +18,7 @@ let apiurl=`https://api.openweathermap.org/geo/1.0/reverse?`
 
 const Searchbar = () => {
 
-
+  const cityRef=useRef()
   const {city: searchedcity,show_citylist : show}=useSelector((state)=>state.searchbar)
   const dispatch=useDispatch()
   const [ll,setLl]=useState(false)
@@ -34,8 +35,22 @@ const Searchbar = () => {
   return  dispatch(search_city(m[0].name))
   })
 
- 
+  
   },[lat,lon,ll])
+
+
+
+  useEffect(()=>{
+    const closelist=(e)=>{
+     if(e.path[0]!==cityRef.current){
+      dispatch(hide_citylist())
+      }
+    }
+    document.addEventListener('click',closelist)
+
+    return () => document.removeEventListener('click',closelist)
+  },[])
+
 
 const handecitylist=()=>{
   if(show==true){
@@ -61,8 +76,10 @@ const handecitylist=()=>{
         <MdLocationOn className={styled.locationicon} onClick={()=>{
           setLl(!ll)
         }}/>
-      <input type="text" defaultValue={searchedcity} className={`${styled.cityinput}`} />
-      <BiCurrentLocation className={styled.locationpointer} onClick={()=>handecitylist()}/>
+      <input ref={cityRef} type="text" defaultValue={searchedcity} className={`${styled.cityinput}`} onClick={()=>handecitylist()}/>
+      <BiCurrentLocation className={styled.locationpointer} onClick={()=>{
+          setLl(!ll)
+        }} ref={cityRef}/>
      
 
         </div>

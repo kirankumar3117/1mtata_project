@@ -10,7 +10,7 @@ import PopularCatogery from "../../components/PopularCatogery/PopularCatogery"
 import Ashwaganda_Landing from '../../components/Ashwaganda_Landing/Ashwaganda_Landing'
 import Healthconcern from '../../components/Healthconcern/Healthconcern'
 import Footer from '../../components/Footer/Footer'
-
+import styled from "./Landingpage.module.css"
 const Landingpage = () => {
   return (
     <div>

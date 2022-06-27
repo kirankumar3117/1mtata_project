@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "./Navbar.module.css"
 import {useState} from "react"
 import {BsCart3} from "react-icons/bs"
+import Login from '../Login/Login'
 
 const Navbar = () => {
   const navobj=[
@@ -43,7 +44,11 @@ const handlenavtheme=(id)=>{
   })
   setNavdata([...navdata])
 }
+
+
+
   return (
+    <div>
     <div className={styled.Navbar}>
       <div className={styled.Navbar1}>
         <div>
@@ -59,6 +64,11 @@ const handlenavtheme=(id)=>{
         <div>offers</div>
         <div className={styled.carticon}><BsCart3 size="20  "/></div>
         <div>Need Help?</div>
+      </div>
+     
+    </div>
+    <div className={styled.login_user}>
+        <Login/>
       </div>
     </div>
   )

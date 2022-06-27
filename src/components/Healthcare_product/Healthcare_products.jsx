@@ -60,7 +60,7 @@ const Healthcare_products = () => {
         max: 464,
         min: 0
       },
-      items: 1,
+      items: 2,
       partialVisibilityGutter: 30
     },
     tablet: {
@@ -68,7 +68,7 @@ const Healthcare_products = () => {
         max: 1024,
         min: 464
       },
-      items: 2,
+      items: 4,
       partialVisibilityGutter: 30
     }
   }}
@@ -78,14 +78,14 @@ const Healthcare_products = () => {
   shouldResetAutoplay
   showDots={false}
   sliderClass=""
-  slidesToSlide={7}
+  slidesToSlide={1}
   swipeable
 >
 
 
             {data.map(e=>{
                 return <div className={styled.item} key={e.id} onClick={()=>{
-                    navigator(`otc/${e.name}`)
+                    navigator(`otc/${e.name}/otc/${e._id}`)
                  }}>
                     <br/>
                     <div className={styled.mainimage}>
