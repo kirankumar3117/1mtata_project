@@ -4,7 +4,7 @@ import { CHANGE_IMAGE } from "./slidebar.types"
 export const slidebar_image_change=()=>(dispatch)=>{
     let value=0;
     setInterval(()=>{
-        if(value==5){
+        if(value==4){
             value=0
         }
         // setTimeout(() => {
