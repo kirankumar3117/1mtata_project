@@ -86,6 +86,7 @@ const Login = () => {
         .then((result) => {
           // User signed in successfully.
           const user = result.user
+          console.log(user)
           setUser(true)
           setLoginSuccessfull(true)
           setTimeout(() => {

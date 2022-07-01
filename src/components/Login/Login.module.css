@@ -157,4 +157,33 @@ flex-direction: row;
 
 /*MIDDLE-LINE*/
 
+@media screen and (max-width:1020px){
+    .container{
+        height:40vh;
+    }
+    .agreement{
+        width:70%;
+    }
+    .forminput{
+        width:100%;
+    }
+     .logindisctription{
+        line-height:1.5;
+    }
+}
 
+@media screen and (max-width:420px) {
+    .slidercontainer{
+        display:none;
+    }
+    .login{
+        width:100%;
+
+    }
+    .container{
+        height:70vh;
+    }
+    .logindisctription{
+        line-height:1.5;
+    }
+}
