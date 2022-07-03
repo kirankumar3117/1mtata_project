@@ -7,13 +7,14 @@ import { useEffect } from 'react'
 import { set_login_state } from '../../store/LoginState/LoginState.action'
 import axios from "axios"
 import { useDispatch, useSelector } from 'react-redux'
-import { get_all_users } from '../../store/User/User.action'
+import { get_all_users, user_state, user_verified } from '../../store/User/User.action'
 import {BsPerson} from "react-icons/bs";
 const Navbar = () => {
   // const [loginstate,setLoginstate]=useState(false)
   const dispatch = useDispatch()
   const { state: loginstate } = useSelector((state) => state.setloginstate)
-  const {userState}=useSelector((state)=> state.user);
+  const {userState,userdata,cartStateManagement}=useSelector((state)=> state.user);
+  
   const navobj = [
     {
       id: 1,
@@ -53,23 +54,55 @@ const Navbar = () => {
     })
     setNavdata([...navdata])
   }
+  useEffect(()=>{
+    const localuser=JSON.parse(localStorage.getItem("_1mtatauser")) || undefined;
+    if(localuser==undefined){
+      dispatch(user_state(false))
+    }
+    else{
+      dispatch(user_state(true))
+      dispatch(user_verified(localuser.phoneNumber))
+    }
+  },[])
 const loginRef=useRef();
-  useEffect(() => {
+  // useEffect(() => {
    
     
-    const closeLogin=(e)=>{
-      console.log("eeeeeeeeeeeeee", e)
-      if(e.patch[0]!== loginRef.current){
-        dispatch(set_login_state(false))
-      }
+  //   const closeLogin=(e)=>{
+  //     console.log("eeeeeeeeeeeeee", e)
+  //     console.log(loginRef)
+  //     if(e.patch[0]!= loginRef.current){
+  //       dispatch(set_login_state(false))
+
+  //     }
+  //   }
+  //   document.addEventListener('click',closeLogin);
+
+  //   return ()=> document.removeEventListener('click',closeLogin)
+   
+   
+  // }, [])
+
+  useEffect(()=>{
+   if(loginstate==true){
+    document.body.setAttribute("id","fixed");
+    document.getElementById("fixed").style.height="100vh"
+    document.getElementById("fixed").style.overflow="hidden"
+   }
+   else{
+    document.body.setAttribute("id","fixed");
+    document.getElementById("fixed").style.height="maxcontent"
+    document.getElementById("fixed").style.overflow="auto"
+   }
+  
+  },[loginstate])
+const [items,setItems]=useState(0);
+
+  useEffect(()=>{
+    if(userdata.cart){
+    setItems(userdata.cart.items.length || 0)
     }
-    document.addEventListener('click',closeLogin);
-
-    return ()=> document.removeEventListener('click',closeLogin)
-   
-   
-  }, [])
-
+  },[userdata,cartStateManagement])
   return (
     <div>
       <div className={styled.Navbar}>
@@ -100,14 +133,15 @@ const loginRef=useRef();
           <div className={styled.savemore}>SAVE MORE</div>
         </div>
         <div className={styled.Navbar2}>
-         {userState==false ?  <div className={styled.loginsignup}>
-            <div
-              onClick={()=>{
+         {userState==false ?  <div className={styled.loginsignup}  ref={loginRef}>
+            <div name="loginsignup"
+              onClick={(e)=>{
                 loginstate == true
                   ? dispatch(set_login_state(false))
                   : dispatch(set_login_state(true))
+                  console.log(e)
               }}
-              ref={loginRef}
+              
             >
               Login
             </div>{' '}
@@ -117,15 +151,18 @@ const loginRef=useRef();
                 loginstate == true
                   ? dispatch(set_login_state(false))
                   : dispatch(set_login_state(true))
+                
               }}
-              ref={loginRef}
+             
             >
               Sign Up
             </div>
           </div> : <div><BsPerson size="20"/></div>}
           <div>offers</div>
           <div className={styled.carticon}>
-            <BsCart3 size="20  " />
+            {/* <BsCart3 size="20  " /> */}
+            <img src="https://res.cloudinary.com/du8msdgbj/image/upload/v1570101941/cart-icon-rebrand_vp4k0f.svg" alt=""  className={styled.navcart}/>
+            {userState ? <div className={styled.cartLength}>{items}</div> : null}
           </div>
           <div>Need Help?</div>
         </div>

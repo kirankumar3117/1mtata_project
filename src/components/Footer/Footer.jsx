@@ -87,6 +87,7 @@ const Footer = () => {
                             <img src="https://imgs.search.brave.com/cpTRzecDS6n_CMTnB8nSTVwaAAmjnI2wKerD4shsW-s/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS9k/b3dubG9hZC9hbmRy/b2lkLzY3MDA2LWFw/cC1wbGF5LWdvb2ds/ZS1hbmRyb2lkLXN0/b3JlLWZyZWUtY2xp/cGFydC1oZC5wbmc" alt="" width="150px"/>
                         </a>
                     </div>
+                    
                     <div>
                         <a>
                             <img src="https://imgs.search.brave.com/v1OnaO6CasYUYtmT7ICdzEmgQFaTCAaQSJ51EteWWKc/rs:fit:861:333:1/g:ce/aHR0cHM6Ly9wbWlj/b2x1bWJ1c2dhLm9y/Zy9pbWFnZXMvaW1h/Z2VzL0FwcGxlLUFw/cC1TdG9yZS1sb2dv/LUZlYi0yMDE4LnBu/Zw" alt="" width="230px" style={{marginLeft:"-38px",marginTop:"-10px"}}/>
@@ -112,21 +113,24 @@ const Footer = () => {
         <div className={styled.component4main}> 
             <div className={styled.component4_1}>
                     <div className={styled.component4_sub}>
-                        <FaShieldAlt className={styled.component4_icons}/>
+                        {/* <FaShieldAlt className={styled.component4_icons}/> */}
+                        <img src="https://res.cloudinary.com/du8msdgbj/image/upload/v1571132631/secure-rebrand_x6f8yq.svg" alt="" />
                         <div className={styled.component4_sub1}>
                             <div>Reliable</div>
                             <div className={styled.component4changecolor}>All Products displayed on Tata 1mg are procured from  verified and licensed pharmacies. All labs listed on the platform are accredited</div>
                         </div>
                     </div>
                     <div className={styled.component4_sub}>
-                        <FaLock className={styled.component4_icons}/>
+                        {/* <FaLock className={styled.component4_icons}/> */}
+                        <img src="https://res.cloudinary.com/du8msdgbj/image/upload/v1571132500/reliable-rebrand_rcpof3.svg" alt="" />
                         <div className={styled.component4_sub1}>
                             <div>Secure</div>
                             <div className={styled.component4changecolor}>Tata 1mg uses Secure Sockets Layer (SSL) 128-bit encryption and Payment Card Industry Data Security Standard (PCI DSS) complaints</div>
                         </div>
                     </div>
                     <div className={styled.component4_sub}>
-                        <MdPayments className={styled.component4_icons}/>
+                        {/* <MdPayments className={styled.component4_icons}/> */}
+                        <img src="https://res.cloudinary.com/du8msdgbj/image/upload/v1571131870/affordable-rebrand_ivgidq.svg" alt="" />
                         <div className={styled.component4_sub1}>
                             <div>Secure</div>
                             <div className={styled.component4changecolor}>Find affordable medicne substitutes, save up to 50% on health products, up to 80% of on lab tests and free doctor consultation.</div>

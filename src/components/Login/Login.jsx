@@ -8,7 +8,8 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { set_login_state } from '../../store/LoginState/LoginState.action'
-import { user_state } from '../../store/User/User.action'
+import { user_state, user_verified } from '../../store/User/User.action'
+import axios from "axios"
 const Login = () => {
   const {state}=useSelector((state)=>state.setloginstate);
   const {userState}=useSelector((state)=> state.user);
@@ -87,6 +88,10 @@ const Login = () => {
           // User signed in successfully.
           const user = result.user
           console.log(user)
+          dispatch(user_verified(user.phoneNumber))
+          localStorage.setItem("_1mtatauser",JSON.stringify(user.reloadUserInfo))
+         
+         
           setUser(true)
           setLoginSuccessfull(true)
           setTimeout(() => {
@@ -104,7 +109,7 @@ const Login = () => {
   }, [otp])
  
   const mainRef = useRef()
-  useEffect(() => {}, [])
+
 
   const dispatch = useDispatch()
   const { state: loginstate } = useSelector((state) => state.setloginstate)
@@ -266,3 +271,9 @@ const Login = () => {
 }
 
 export default Login
+
+
+//eyJhbGciOiJSUzI1NiIsImtpZCI6IjUwYTdhYTlkNzg5MmI1MmE4YzgxMzkwMzIzYzVjMjJlMTkwMzI1ZDgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXR
+//eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk4OTdjZjk0NTllMjU0ZmYxYzY3YTRlYjZlZmVhNTJmMjFhOWJhMTQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS
+//zY9xuF96IYO5XzoZNXhkMda5Kpj1
+//zY9xuF96IYO5XzoZNXhkMda5Kpj1

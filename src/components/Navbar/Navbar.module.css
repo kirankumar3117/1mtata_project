@@ -52,14 +52,26 @@
 .loginsignup>div{
     cursor:pointer;
 }
-/* .carticon{
-   
-} */
+.carticon{
+   display:flex;
+}
 .login_user{
     display:none;
 }
 .login_user_1{
     display:block;
+}
+.cartLength{
+    background: red;
+    color:white;
+    height:20px;
+    border-radius: 9px;
+    margin-top:-4px;
+    
+}
+.navcart{
+    width: 25px;
+    margin-top:-10px;
 }
 @media screen and (max-width:820px){
     .Navbar1{

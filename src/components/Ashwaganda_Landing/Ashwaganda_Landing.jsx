@@ -18,6 +18,12 @@ const Ashwaganda_Landing = () => {
     useEffect(()=>{
         dispatch(get_ashwaganda_landing())
      },[])
+     const handleurl=(e)=>{
+      const win = window.open(`otc/${e.name}/otc/${e._id}`, '_blank');
+       if (win != null) {
+          win.focus();
+       }
+     }
   return (
     <div>
            <div className={styled.component1}>
@@ -88,7 +94,12 @@ const Ashwaganda_Landing = () => {
 
             {data.map(e=>{
                 return <div className={styled.item} key={e._id} onClick={()=>{
-                    navigator(`otc/${e.name}/otc/${e._id}`)
+                    // navigator()
+                    handleurl(e)
+                    // const win = window.open(`otc/${e.name}/otc/${e._id}`, '_blank');
+                    // if (win != null) {
+                    //   win.focus();
+                    // }
                  }}>
                     <br/>
                     <div className={styled.mainimage}>

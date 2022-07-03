@@ -13,15 +13,37 @@ import Footer from "../Footer/Footer"
 import { useState } from 'react'
 import {TbArrowWaveRightUp} from "react-icons/tb"
 import {BiRupee} from "react-icons/bi"
+import {set_login_state} from "../../store/LoginState/LoginState.action"
+import axios from "axios"
+import { cart_state_management } from '../../store/User/User.action'
 const Individualitem = () => {
     const {name,id}=useParams()
-    const {data,loading}=useSelector((state)=>state.individualitempage)
+    const {data,loading}=useSelector((state)=>state.individualitempage);
+    const {userState,userdata,cartStateManagement}=useSelector((state)=> state.user);
     const dispatch=useDispatch()
     const [bought,setBought]=useState(0)
     useEffect(()=>{
        dispatch(get_indual_item(id))
        setBought(Math.round(Math.random()*2544))
     },[id])
+
+    const handlecarding=()=>{
+      if(userState==true){
+        userdata.cart.items=[...userdata.cart.items,data]
+        axios.patch(`https://tatauser.herokuapp.com/user/${userdata._id}`,{
+          ...userdata,
+        
+        }).then((res)=> console.log(res.data))
+        dispatch(cart_state_management(!cartStateManagement))
+      }
+      else{
+        dispatch(set_login_state(true))
+      }
+    }
+    useEffect(()=>{
+     
+   
+    },[])
   return (
     <div>
     <Navbar/>
@@ -77,7 +99,9 @@ const Individualitem = () => {
         </select>
         <div>Quantity</div>
         </div>
-        <div className={styled.addcart}>ADD TO CART</div>
+        <div className={styled.addcart} onClick={()=>{
+          handlecarding()
+        }}>ADD TO CART</div>
       </div>
      </div>
      </div>
