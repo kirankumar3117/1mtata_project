@@ -1,0 +1,25 @@
+.navbar{
+    display:flex;
+    flex-direction: row;
+    gap:10px 5px;
+    width:97%;
+    margin-left:1.5%;
+    justify-content: space-between;
+   
+}
+.navbar>div{
+    padding:5px 0px;
+}
+.navbarcontainer{
+    width:100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.input{
+    width:660px;
+    margin-left:-300px;
+    margin-top:0px;
+    background: rgb(240, 240, 240);
+    border:none;
+    outline: none;
+    height:40px;
+}

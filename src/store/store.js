@@ -6,6 +6,7 @@ import {
 } from 'redux'
 
 import thunk from 'redux-thunk'
+import { AllProductsReducer } from './AllItems/AllItems.reducer'
 import { IndividualPageReducer } from './IndividualPage/IndividualPage.reducer'
 import { Ashwaganda_LandingReducer } from './LandingPage/Ashwaganda_Landing/Ashwaganda_Landing.reducer'
 import { FeaturedbrandReducer } from './LandingPage/FeaturedBrands/FeaturedBrands.reducer'
@@ -30,7 +31,8 @@ const rootreducer = combineReducers({
   ashwagandalanding: Ashwaganda_LandingReducer,
   individualitempage: IndividualPageReducer,
   setloginstate:LoginStateReducer,
-  user:UserReducer
+  user:UserReducer,
+  getallproducts:AllProductsReducer
 })
 
 export const store = legacy_createStore(

@@ -59,6 +59,7 @@ export const cart_state_management=(value)=>(dispatch)=>{
 
 export const remove_user=(value)=>(dispatch)=>{
   window.localStorage.removeItem('_1mtatauser');
+  window.localStorage.removeItem('_grecaptcha');
   alert("User Logged Out")
   dispatch({type:REMOVE_USER})
   // window.location.reloade();

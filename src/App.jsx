@@ -6,6 +6,7 @@ import Landingpage from './pages/Landingpage/Landingpage';
 import Itempage from './pages/Itempage/Itempage';
 import Individualitem from './components/Individualitem/Individualitem';
 import Login from './components/Login/Login';
+import Cart from './Cart/Cart';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path={"/"} element={<Landingpage/>}/>
       <Route path={"otc/:name/otc/:id"} element={<Individualitem/>}/>
     </Routes>    
+    {/* <Cart/> */}
     </div>
   );
 }
