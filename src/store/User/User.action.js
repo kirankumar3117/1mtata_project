@@ -1,4 +1,4 @@
-import { CARTSTATEMANAGEMENT, GET_ALL_USERS, GET_SINGLE_USER, USER_STATE, USER_VERIFIED } from "./User.type"
+import { CARTSTATEMANAGEMENT, GET_ALL_USERS, GET_SINGLE_USER, REMOVE_USER, USER_STATE, USER_VERIFIED } from "./User.type"
 import axios from "axios"
 import { useSelector } from "react-redux"
 
@@ -55,4 +55,11 @@ export const get_single_user=(id)=>(dispatch)=>{
 
 export const cart_state_management=(value)=>(dispatch)=>{
   dispatch({type:CARTSTATEMANAGEMENT,payload:value})
+}
+
+export const remove_user=(value)=>(dispatch)=>{
+  window.localStorage.removeItem('_1mtatauser');
+  alert("User Logged Out")
+  dispatch({type:REMOVE_USER})
+  // window.location.reloade();
 }

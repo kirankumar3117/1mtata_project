@@ -15,6 +15,14 @@ const Topseller_product = () => {
     useEffect(()=>{
         dispatch(get_top_nutrition_seller())
      },[])
+
+     const handleurl=(e)=>{
+      const win = window.open(`otc/${e.name}/otc/${e._id}`, '_blank');
+       if (win != null) {
+          win.focus();
+       }
+     }
+     
   return (
     <div>
            <div className={styled.component1}>
@@ -85,7 +93,7 @@ const Topseller_product = () => {
 
             {data.map(e=>{
                 return <div className={styled.item} key={e.id} onClick={()=>{
-                    navigator(`otc/${e.name}/otc/${e._id}`)
+                   handleurl(e)
                  }}>
                     <br/>
                     <div className={styled.mainimage}>

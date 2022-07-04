@@ -1,4 +1,4 @@
-import { CARTSTATEMANAGEMENT, GET_ALL_USERS, GET_SINGLE_USER, USER_STATE, USER_VERIFIED } from "./User.type"
+import { CARTSTATEMANAGEMENT, GET_ALL_USERS, GET_SINGLE_USER, REMOVE_USER, USER_STATE, USER_VERIFIED } from "./User.type"
 
 
 const initial={
@@ -12,7 +12,8 @@ export const UserReducer=(state=initial,{type,payload})=>{
        case USER_STATE:{
         return {
             ...state,
-            userState:payload
+            userState:payload,
+            
         }
        }
        case USER_VERIFIED:{
@@ -32,6 +33,13 @@ export const UserReducer=(state=initial,{type,payload})=>{
             ...state,
             cartStateManagement:payload
          }
+       }
+       case REMOVE_USER:{
+        return {
+            ...state,
+            userState:false,
+            userdata:{}
+        }
        }
        
         default:{

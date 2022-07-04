@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import { set_login_state } from '../../store/LoginState/LoginState.action'
 import axios from "axios"
 import { useDispatch, useSelector } from 'react-redux'
-import { get_all_users, user_state, user_verified } from '../../store/User/User.action'
+import { get_all_users, remove_user, user_state, user_verified } from '../../store/User/User.action'
 import {BsPerson} from "react-icons/bs";
 const Navbar = () => {
   // const [loginstate,setLoginstate]=useState(false)
@@ -54,6 +54,8 @@ const Navbar = () => {
     })
     setNavdata([...navdata])
   }
+
+  
   useEffect(()=>{
     const localuser=JSON.parse(localStorage.getItem("_1mtatauser")) || undefined;
     if(localuser==undefined){
@@ -63,25 +65,13 @@ const Navbar = () => {
       dispatch(user_state(true))
       dispatch(user_verified(localuser.phoneNumber))
     }
-  },[])
+  },[userState])
+
+
 const loginRef=useRef();
-  // useEffect(() => {
-   
-    
-  //   const closeLogin=(e)=>{
-  //     console.log("eeeeeeeeeeeeee", e)
-  //     console.log(loginRef)
-  //     if(e.patch[0]!= loginRef.current){
-  //       dispatch(set_login_state(false))
-
-  //     }
-  //   }
-  //   document.addEventListener('click',closeLogin);
-
-  //   return ()=> document.removeEventListener('click',closeLogin)
-   
-   
-  // }, [])
+ const handleLogOut=()=>{
+  dispatch(remove_user())
+ }
 
   useEffect(()=>{
    if(loginstate==true){
@@ -157,7 +147,17 @@ const [items,setItems]=useState(0);
             >
               Sign Up
             </div>
-          </div> : <div><BsPerson size="20"/></div>}
+          </div> : <div><BsPerson size="20" className={styled.userprofile}/>
+          <div className={styled.usermaindivcontainer}>
+          <div className={styled.usermaindiv}>
+            <br/>
+            <div onClick={()=>{
+              handleLogOut()
+            }}>Log out</div>
+            <br/>
+          </div>
+           </div>
+          </div>}
           <div>offers</div>
           <div className={styled.carticon}>
             {/* <BsCart3 size="20  " /> */}

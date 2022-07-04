@@ -18,6 +18,8 @@ const Ashwaganda_Landing = () => {
     useEffect(()=>{
         dispatch(get_ashwaganda_landing())
      },[])
+
+     
      const handleurl=(e)=>{
       const win = window.open(`otc/${e.name}/otc/${e._id}`, '_blank');
        if (win != null) {
