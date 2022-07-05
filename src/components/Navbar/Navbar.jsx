@@ -9,11 +9,22 @@ import axios from "axios"
 import { useDispatch, useSelector } from 'react-redux'
 import { get_all_users, remove_user, user_state, user_verified } from '../../store/User/User.action'
 import {BsPerson} from "react-icons/bs";
+import {useNavigate} from "react-router-dom"
 const Navbar = () => {
   // const [loginstate,setLoginstate]=useState(false)
   const dispatch = useDispatch()
   const { state: loginstate } = useSelector((state) => state.setloginstate)
   const {userState,userdata,cartStateManagement}=useSelector((state)=> state.user);
+  const navigator=useNavigate()
+  const handleCart=()=>{
+    if(userState){
+     
+      navigator("/cart")
+    }
+    else{
+      dispatch(set_login_state(true))
+    }
+  }
   
   const navobj = [
     {
@@ -55,7 +66,7 @@ const Navbar = () => {
     setNavdata([...navdata])
   }
 
-  
+
   useEffect(()=>{
     const localuser=JSON.parse(localStorage.getItem("_1mtatauser")) || undefined;
     if(localuser==undefined){
@@ -161,7 +172,9 @@ const [items,setItems]=useState(0);
           <div>offers</div>
           <div className={styled.carticon}>
             {/* <BsCart3 size="20  " /> */}
-            <img src="https://res.cloudinary.com/du8msdgbj/image/upload/v1570101941/cart-icon-rebrand_vp4k0f.svg" alt=""  className={styled.navcart}/>
+            <img src="https://res.cloudinary.com/du8msdgbj/image/upload/v1570101941/cart-icon-rebrand_vp4k0f.svg" alt=""  className={styled.navcart} onClick={()=>{
+             handleCart()
+            }}/>
             {userState ? <div className={styled.cartLength}>{items}</div> : null}
           </div>
           <div>Need Help?</div>

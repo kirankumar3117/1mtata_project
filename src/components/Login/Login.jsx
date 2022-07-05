@@ -71,6 +71,9 @@ const Login = () => {
         
         setValidnumber(true)
         setLoginLoading(false)
+        setInterval(() => {
+         setValidnumber(false)
+        }, 2000);
       })
   }
   const [otp, setOtp] = useState("")

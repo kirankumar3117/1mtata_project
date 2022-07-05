@@ -16,8 +16,9 @@ function App() {
      <Routes>
       <Route path={"/"} element={<Landingpage/>}/>
       <Route path={"otc/:name/otc/:id"} element={<Individualitem/>}/>
+      <Route path={"cart"} element={<Cart/>}/>
     </Routes>    
-    {/* <Cart/> */}
+    
     </div>
   );
 }

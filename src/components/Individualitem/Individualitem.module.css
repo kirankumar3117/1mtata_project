@@ -165,7 +165,7 @@
 }
 .addcart{
     width:92%;
-    margin-left:4%;
+    margin-left:0%;
     height:40px;
     background: rgb(254,111,96);
     color:white;
@@ -173,6 +173,8 @@
     line-height: 2.5;
     margin-top:25px;
     cursor: pointer;
+    outline: none;
+    border:none;
 }
 
 /*MEDIA SCREEN FROM 1020  AND >*/

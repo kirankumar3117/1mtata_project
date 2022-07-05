@@ -21,29 +21,41 @@ const Individualitem = () => {
     const {data,loading}=useSelector((state)=>state.individualitempage);
     const {userState,userdata,cartStateManagement}=useSelector((state)=> state.user);
     const dispatch=useDispatch()
-    const [bought,setBought]=useState(0)
+    const [bought,setBought]=useState(0);
+    const [quantity,setQuantity]=useState(1);
     useEffect(()=>{
        dispatch(get_indual_item(id))
        setBought(Math.round(Math.random()*2544))
+        
     },[id])
+    useEffect(()=>{
+      data.totalquantity=data.totalquantity || 1;
+        console.log(data)
+    },[loading])
+  
 
     const handlecarding=()=>{
       if(userState==true){
-        userdata.cart.items=[...userdata.cart.items,data]
+        // data.totalquantity=quantity;
+        let newdata=[]
+        userdata.cart.items.filter(e=>{
+          return (e._id==data._id ?  data.totalquantity+=1   : newdata.push(e))
+        
+        })
+       
+        userdata.cart.items=[...newdata,data]
         axios.patch(`https://tatauser.herokuapp.com/user/${userdata._id}`,{
           ...userdata,
         
         }).then((res)=> console.log(res.data))
+        console.log(userdata)
         dispatch(cart_state_management(!cartStateManagement))
       }
       else{
         dispatch(set_login_state(true))
       }
     }
-    useEffect(()=>{
-     
    
-    },[])
   return (
     <div>
     <Navbar/>
@@ -89,7 +101,11 @@ const Individualitem = () => {
         <div className={styled.discount}>{data.discount}% off</div>
         <div className={styled.taxes}>Inclusive of all taxes</div>
         <div className={styled.selectop}>
-        <select name="Quantity" id="" className={styled.select}>
+        <select name="Quantity" id="" className={styled.select} onChange={(e)=>{
+         let value=e.target.value;
+         value=+value;
+         setQuantity(value)
+        }}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
