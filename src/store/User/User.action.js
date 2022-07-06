@@ -18,16 +18,15 @@ export const user_verified=(value)=>(dispatch)=>{
   let isthere=false;
   let user;
   data.filter(e=>{
-    if(e.number===value){
-      user=e;
+    if(e.number==value){
       isthere=true;
+      dispatch({type:USER_VERIFIED,payload:e})
     }
   });
-
-  if(user){
-    dispatch({type:USER_VERIFIED,payload:user})
+  if(isthere){
+    return 
   }
-  else{
+  else if(!isthere){
     axios.post('https://tatauser.herokuapp.com/user',{
       number:value,
       cart:{

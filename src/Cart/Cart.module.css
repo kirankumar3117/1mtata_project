@@ -37,6 +37,7 @@
 .searchlist>div{
     /* height:55px; */
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background: white;
 }
 .searchedname{
     line-height:2.5 ;
@@ -62,7 +63,6 @@
 }
 .paymentmain{
     width:30%;
-    border:1px solid blue;
     margin-top:28px;
 }
 .cartmain_initial{
@@ -118,10 +118,21 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     margin-top: 10px;
-    margin-right:-15px;
-    position: relative;
-    right:-35px;
+  
+    /* position: relative;
+   margin-right:-35px; */
 }
+.mainpayment{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width:100%;
+}
+.pricemain_1{
+    margin-left:36px;
+}
+.pricemain_2{
+    margin-left:28px;
+}
+
 .linethrough{
     text-decoration: line-through;
 }
@@ -130,8 +141,8 @@
     font-weight: bold;
     color:rgb(146, 140, 140);
     margin-right:-15px;
-    margin-top:5px;position: relative;
-    right:-28px;
+    /* margin-top:5px;position: relative;
+    right:-28px; */
 }
 .cartquantity{
     display:flex;
@@ -145,6 +156,70 @@
     gap:2px;
     margin-top:25px;
     cursor: pointer;
+}
+.cartcontent_1{
+    width:95%;
+    margin-left:2.5%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 13px;
+    color:rgb(151, 151, 151);
+    font-family: sans-serif;
+    line-height: 2;
+    margin-top: 5px;
+   
+}
+.cartcontent_line{
+    width:95%;
+    margin-left:2.5%;
+    height:0.5px;
+    background: rgb(239, 239, 239);
+    margin-top: 4px;
+}
+.cartcontent_3{
+    background: rgb(184, 237, 184);
+    width:100%;
+    margin-top:15px;
+}
+.cartcontent_2{
+  
+    margin-left:2.5%;
+   
+    height:38px;
+    justify-content: space-between;
+    line-height:2.7;
+}
+.cartLocation{
+    width:85%;
+    margin-left:7.5%;
+    font-size: 13px;
+    color:rgb(136, 136, 136);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top:20px;
+}
+.locationcolor{
+    color:rgb(255,111,97);
+}
+.tobepaid{
+    font-weight: bold;
+    color:rgb(94, 94, 94);
+    font-size:15px;
+}
+.checkout{
+    width:88%;
+   margin-top:25px;
+    height:50px;
+    background: rgb(255,111,97);
+    color:white;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    outline: none;
+    border: 2px solid rgb(255,111,97);
+   
 }
 @media screen and (max-width:1020px) {
     .input{

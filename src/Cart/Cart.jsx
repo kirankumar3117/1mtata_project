@@ -6,15 +6,58 @@ import { get_all_products } from '../store/AllItems/AllItems.action'
 import { useDispatch, useSelector } from 'react-redux'
 import {useNavigate} from "react-router-dom";
 import {BiRupee} from "react-icons/bi"
+import { get_single_user, user_state, user_verified } from '../store/User/User.action'
+import { USER_VERIFIED } from '../store/User/User.type'
+import {TbCurrencyRupee} from "react-icons/tb"
+import {MdLocationPin} from "react-icons/md"
 const Cart = () => {
     const dispatch=useDispatch()
+    const [datawait,setDatawait]=useState(false)
+    const [totalAmount,setTotalAmount]=useState(0)
+    const [totalDiscount,setTotalDiscount]=useState(0)
+    const {city}=useSelector((state)=>state.searchbar)
+
+    useEffect(()=>{
+        
+        const localuser=JSON.parse(localStorage.getItem("_1mtatauser")) ;
+       
+        dispatch(user_state(true))
+        dispatch(user_verified(localuser.phoneNumber))
+        console.log(userdata)
+        setTimeout(() => {
+            dispatch(user_verified(localuser.phoneNumber))
+            if(userdata.cart.items.length>0){
+            userdata.cart.items.map(e=>{
+                return (e.totalquantity ? null : e.totalquantity=1)
+            })
+            axios.patch(`https://tatauser.herokuapp.com/user/${userdata._id}`,{
+                ...userdata,
+              
+              })
+              
+            }
+              setDatawait(true)
+        }, 3000);
+        
+     
+       
+        const closelist = (e) => {
+            if (e.path[0] !== inputRef.current) {
+              setSearchState(false)
+            }
+          }
+          document.addEventListener('click', closelist)
+      
+          return () => document.removeEventListener('click', closelist)
+    },[])
+
    
     const {allproducts}=useSelector((state)=>state.getallproducts)
-    const {userdata}=useSelector((state)=>state.user)
+    const {userdata,userState}=useSelector((state)=>state.user)
    
     const [searchState,setSearchState]=useState(false);
     const navigator=useNavigate();
-    const [totalAmout,setTotalAmount]=useState(0);
+   
     // const [itemquantity,setItemq]
 
     //Input search part//
@@ -28,25 +71,26 @@ const Cart = () => {
            allproducts.filter(e=>{
             let type;
             let real;
-            
+            let name;
+            name=e.name.toLowerCase()
             if(e.type){
                 type=e.type;
                 type=type.toLowerCase();
-                type=type.slice(0,takeninput.length)
+                type=type.slice(0,takeninput.length);
             }
             if(e.real){
                 real=e.real;
                 real=real.toLowerCase();
-                real=real.slice(0,takeninput.length)
+                real=real.slice(0,takeninput.length);
             }
-           if(takeninput==type || takeninput==real){
+           if(takeninput==type || takeninput==real || name.includes(takeninput)){
             if(femiliar.includes(e)){
                 return 
             }
             else if(femiliar.length<=3){
-                femiliar.push(e)
+                femiliar.push(e);
                 //setting data to for the dom manipulation
-                setData(femiliar)
+                setData(femiliar);
              }
              else{
                 return 
@@ -74,38 +118,89 @@ const Cart = () => {
 
     const inputRef=useRef();
 
-    useEffect(()=>{
-        userdata.cart.items.map(e=>{
-            return (e.totalquantity ? null : e.totalquantity=1)
-        })
-        const closelist = (e) => {
-            if (e.path[0] !== inputRef.current) {
-              setSearchState(false)
-            }
-          }
-          document.addEventListener('click', closelist)
-      
-          return () => document.removeEventListener('click', closelist)
-    },[])
+  
 
-    const handleDecrease=(data)=>{
-        let newdata=[]
-        userdata.cart.items.filter(e=>{
-          return (e._id==data._id ?  data.totalquantity-=1 :newdata.push(e))
-        
-        })
-       
-        userdata.cart.items=[...newdata,data]
-        axios.patch(`https://tatauser.herokuapp.com/user/${userdata._id}`,{
+    const handleDecrease=(e_data)=>{
+        let t=[];
+        if(e_data.totalquantity<=1 ){
+           userdata.cart.items.filter(e=>{
+                return (e._id==e_data._id ? null : t.push(e));
+
+            })
+            userdata.cart.items=[...t]
+        }
+        else{
+            userdata.cart.items.filter(e=>{
+                return (e._id==e_data._id ? e.totalquantity-=1 : e);
+
+            })
+        }
+      
+     
+         axios.patch(`https://tatauser.herokuapp.com/user/${userdata._id}`,{
           ...userdata,
         
-        }).then((res)=> console.log(res.data))
-        console.log(userdata)
+        })
+        setTimeout(() => {
+            dispatch(get_single_user(userdata._id));
+        }, 1000);
        
     }
+    const handleIncrease=(e_data)=>{
+        let t=[];
+        userdata.cart.items.filter(e=>{
+            return (e._id==e_data._id ? e.totalquantity+=1 : e);
+
+        })
+        axios.patch(`https://tatauser.herokuapp.com/user/${userdata._id}`,{
+            ...userdata,
+          
+          })
+        setTimeout(() => {
+            dispatch(get_single_user(userdata._id));
+        }, 1000);
+       
+       
+    }
+
+    const handleRemove=(e_data)=>{
+        let t=[];
+        userdata.cart.items.filter(e=>{
+            return (e._id==e_data._id ? null : t.push(e));
+
+        })
+        userdata.cart.items=[...t]
+        axios.patch(`https://tatauser.herokuapp.com/user/${userdata._id}`,{
+            ...userdata,
+          
+          })
+          setTimeout(() => {
+              dispatch(get_single_user(userdata._id));
+          }, 1000);
+    }
     
+  
+    useEffect(()=>{
+        let tAmount=0;
+        let tDiscount=0;
+        setTimeout(() => {
+          
+            userdata.cart.items.map(e=>{
+                let price =+(e.price-(e.discount/100)*e.price).toFixed(0);
+                let discount=e.price-price;
+
+                return (tAmount+=(price*e.totalquantity), tDiscount+=discount*e.totalquantity)
+            })
+
+            setTotalAmount(tAmount);
+            setTotalDiscount(tDiscount)
+        }, 2000);
+      
+
+    },[userdata])
 
   return (
+   
     <div>
         <div className={styled.navbarcontainer}>
         <div className={styled.navbar}>
@@ -151,27 +246,39 @@ const Cart = () => {
         </div>
 
         {/* Cart Items List && Payment amount Details*/ }
-        <div className={styled.container}>
+        {datawait ? <div className={styled.container}>
             <div className={styled.cartmain}>
-                <div className={styled.cartmain_initial}>Items present in cart ( {userdata.cart.items.length} )</div>
+                <div className={styled.cartmain_initial}>Items present in cart ( {userdata.cart.items.length || 0} )</div>
                 <div>
                     {userdata.cart.items.map(e=>{
                         return <div className={styled.item}>
                             <div>
                             <div className={styled.itemname}>{e.name}</div>
                             <div className={styled.itemquantity}>{e.quantity}</div>
-                            <div className={styled.remove}> <img src="https://img.1mg.com/images/delete_icon.svg" alt="" /> <div className={styled.remove_1}>Remove</div></div>
+                            <div className={styled.remove} onClick={()=>{
+                                handleRemove(e)
+                            }}> <img src="https://img.1mg.com/images/delete_icon.svg" alt="" /> <div className={styled.remove_1}>Remove</div></div>
                             <br/>
                             </div>
                             <div className={styled.itemmain_2}>
-                            <div className={styled.pricemain}><BiRupee/>{(e.price-(e.discount/100)*e.price).toFixed(0)}</div>
-                            <div className={styled.price}>MRP <span className={styled.linethrough}>{e.price}</span> </div>
+                            <div className={styled.pricemain}>
+                                <div className={styled.pricemain_1}>
+                                <BiRupee/>{(e.price-(e.discount/100)*e.price).toFixed(0)}
+                                </div>
+                                </div>
+                            <div className={styled.price}>
+                                <div className={styled.pricemain_2}>
+                                MRP <span className={styled.linethrough}>{e.price}</span>
+                                </div>
+                                 </div>
                             <div className={styled.cartquantity}>
                                 <div onClick={()=>{
                                   handleDecrease(e)
                                 }}><img src="https://www.1mg.com/images/minus-cart.svg" alt="" /></div>
                                 <div>{e.totalquantity}</div>
-                                <div><img src="https://www.1mg.com/images/plus-cart.svg" alt="" /></div>
+                                <div onClick={()=>{
+                                  handleIncrease(e)
+                                }}><img src="https://www.1mg.com/images/plus-cart.svg" alt="" /></div>
                             </div>
                             </div>
                         </div>
@@ -179,22 +286,36 @@ const Cart = () => {
                 </div>
             </div>
             <div className={styled.paymentmain}>
-                <div>
-                <div>
+                <div className={styled.mainpayment}>
+                <div className={styled.cartcontent_1}>
                     <div>Item Total(MRP)</div>
-                    <div>{}</div>
+                    <div><TbCurrencyRupee/>{totalAmount+totalDiscount}</div>
                 </div>
-                <div></div>
-                <div>
-                    <div></div>
-                    <div></div>
+                <div className={styled.cartcontent_1}>
+                    <div>Price Discount</div>
+                    <div>-<TbCurrencyRupee/>{totalDiscount}</div>
+                </div>
+                <div className={styled.cartcontent_line}></div>
+              
+                <div className={`${styled.cartcontent_1} ${styled.tobepaid}`} >
+                    <div>To be paid</div>
+                    <div><TbCurrencyRupee/>{totalAmount}</div>
+                </div>
+                <div className={styled.cartcontent_3}>
+                <div className={`${styled.cartcontent_1} ${styled.cartcontent_2}`}>
+                    <div>Total Savings</div>
+                    <div style={{color:"green"}}><TbCurrencyRupee/>{totalDiscount}</div>
                 </div>
                 </div>
-                <div></div>
-                <div></div>
+                  </div>
+                <div className={styled.cartLocation}>
+                    <div>Your delivery location</div>
+                    <div className={styled.locationcolor}><MdLocationPin/>{city}</div>
+                </div>
+                <button className={styled.checkout}>CHECKOUT</button>
             </div>
-        </div>
-    </div>
+        </div> : <div>loading</div>}
+    </div> 
   )
 }
 

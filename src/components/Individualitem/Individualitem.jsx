@@ -36,10 +36,12 @@ const Individualitem = () => {
 
     const handlecarding=()=>{
       if(userState==true){
-        // data.totalquantity=quantity;
+        if(!data.totalquantity){
+          data.totalquantity=1
+        }
         let newdata=[]
         userdata.cart.items.filter(e=>{
-          return (e._id==data._id ?  data.totalquantity+=1   : newdata.push(e))
+          return (e._id==data._id ?  null   : newdata.push(e))
         
         })
        
@@ -49,6 +51,7 @@ const Individualitem = () => {
         
         }).then((res)=> console.log(res.data))
         console.log(userdata)
+       
         dispatch(cart_state_management(!cartStateManagement))
       }
       else{
